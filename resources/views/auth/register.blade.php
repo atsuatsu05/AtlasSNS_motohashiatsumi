@@ -2,15 +2,26 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/〇〇']) !!}
-
+{!! Form::open(['url' => '/register']) !!}
+{{ csrf_field() }}
 <h2>新規ユーザー登録</h2>
 
+<!-- バリデーションのエラーメッセージを表示させる -->
+@if($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 {{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+{{ Form::text('username',null,['class' => 'input'],['value' => 'old("username")']) }}
 
 {{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+{{ Form::text('mail',null,['class' => 'input'],['value' => 'old("mail")']) }}
 
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
@@ -18,7 +29,7 @@
 {{ Form::label('パスワード確認') }}
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('登録') }}
+<button type="submit" class="btn btn-danger">新規登録</button>
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
 

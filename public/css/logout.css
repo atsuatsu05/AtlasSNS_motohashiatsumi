@@ -1,10 +1,91 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+body {
+    margin-top: 150px;
+    background: linear-gradient(0deg, #f6cd15 0%, #1798e8 50%, #186AC9 100%);
+}
+
+
+header {
+    width: 500px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+header img {
+    width: 50%;
+    height: 50%;
+}
+
+header h1 {
+    font-size: 0.5rem;
+}
+
+header p {
+    font-size: 200%;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+}
+
+
+
+#container {
+    color: #ffffff;
+    width: 300px;
+    background-color: #0000003b;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+#container h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#container p {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#container a {
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+#container a:hover {
+    opacity: 0.8;
+}
+
+#container form {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.input {
+    display: block;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 100%;
+    height: 35px;
+    margin: 5px 0 15px 0;
+    justify-content: center;
+}
+
+.btn {
+    display: block;
+    margin: 20px 0 40px auto;
+    width: 120px;
+}
+
+/* バリデーションのエラーメッセージ表示 */
+.alert {
+    margin: 10px auto;
 }
