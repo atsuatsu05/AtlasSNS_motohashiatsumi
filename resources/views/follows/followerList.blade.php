@@ -21,10 +21,8 @@
         <p class="post_name">{{ $post->user->username }}</p>
         <p class="post_created">{{ $post->created_at->format('Y-m-d H:i') }}</p>
       </div>
-   <p class="post_list">{{ $post->post }}</p>
-
-
-</div>
+      <p class="post_list">{{ $post->post }}</p>
+    </div>
 
    </li>
 @endforeach
