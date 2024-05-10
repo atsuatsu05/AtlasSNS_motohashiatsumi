@@ -2,7 +2,9 @@
 
 html {}
 
-body {}
+body {
+    margin: 0 auto;
+}
 
 /* header */
 header {
@@ -85,11 +87,6 @@ a {
 }
 
 
-body {
-    /* width: 100px;
-    height: 100px; */
-    margin: 0 auto;
-}
 
 /*サイドバー*/
 #confirm {
@@ -105,7 +102,7 @@ body {
 }
 
 .btn {
-    margin-left: 45%;
+    margin-left: 40%;
     width: 150px;
     white-space: nowrap;
 }
@@ -125,7 +122,8 @@ body {
 }
 
 .post_container,
-.follow_container {
+.follow_container,
+.user_container {
     display: flex;
     border-bottom: 6px solid #dadada;
     padding: 20px 20px 20px 50px;
@@ -155,7 +153,8 @@ body {
 
 
 /* 投稿一覧 */
-.posts_container li {
+.posts_container li,
+.user_posts li {
     padding: 20px 20px 20px 80px;
     border-bottom: 1px solid #777;
 }
@@ -299,18 +298,25 @@ body {
 
 .update_form {
     margin-left: 30px;
-
-}
-
-.update_form :first-child {
     margin-top: 10px;
+
 }
+
+/* .update_form :first-child {
+    margin-top: 10px;
+} */
 
 .update_block {
     display: flex;
-    margin-top: 40px;
+    margin-bottom: 40px;
     justify-content: space-between;
 }
+
+.update_block label {
+    margin-top: 10px;
+}
+
+
 
 .update_block input {
     width: 60%;
@@ -323,9 +329,10 @@ body {
     display: none;
 }
 
+
 .update_image {
     width: 60%;
-    height: 80px;
+    height: 100px;
     background: #eee;
     border: 1px solid #aaa;
     padding: 5px;
@@ -336,10 +343,15 @@ body {
     color: #aaa;
     background: #fff;
     border: none;
-    width: 60%;
-    height: 40%;
+    /* width: 100%; */
     cursor: pointer;
-    margin: 20px auto;
+    margin: 15px auto;
+    padding: 10px 20px;
+}
+
+.update_image p {
+    position: relative;
+    top: -10px;
 }
 
 .profile_update .btn {
@@ -417,10 +429,14 @@ body {
     margin: 20px;
 }
 
+.users_list form {
+    width: 100%;
+}
 
 .users_list button {
+    display: block;
     color: #fff;
-    margin: 30px 0 30px 250px;
+    margin: 30px 0 30px auto;
     background-color: #00b3ff;
     border: none;
 }
@@ -452,5 +468,47 @@ body {
 
 .following_icon,
 .followed_icon {
+    display: flex;
     margin: 0px 30px;
+}
+
+.following_icon a,
+.followed_icon a {
+    margin: 0 5px;
+}
+
+/*他ユーザーのプロフィール*/
+.user_profile {
+    display: flex;
+    width: 100%;
+    margin: 20px;
+}
+
+.user_profile h2 {
+    width: 100px;
+    text-align-last: justify;
+}
+
+.user_profile p {
+    margin-left: 80px;
+}
+
+.profile_box {
+    margin: 0 20px;
+}
+
+.username,
+.bio {
+    display: flex;
+    margin: 10px;
+    font-size: 1.1rem;
+}
+
+.bio {
+    margin-top: 40px;
+}
+
+.user_profile button {
+    display: block;
+    margin-top: 60px;
 }

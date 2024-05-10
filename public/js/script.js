@@ -36,9 +36,22 @@ $(function () {
 //変数に代入
 const file_image = document.getElementById("file_image");
 const file_button = document.getElementById("file_button");
-//file_imageボタンがクリックされたら、filebutton（inputタグ）が実行されるように記述
+//file_imageボタンがクリックされたら、file_button（inputタグ）が実行されるように記述
 file_image.addEventListener("click", (e) => {
   if (file_button) {
     file_button.click();
+    $(".file_image").fadeOut();
   }
 }, false);
+
+//ファイルをアップロードしたらファイル名が表示される機能
+document.querySelectorAll('.update_image input[type=file]').forEach(function () {
+  this.addEventListener('change', function (e) {
+    let parent = e.target.closest('.update_image')
+    parent.querySelector('.file_name').innerHTML = ''
+    //ファイル名を表示させる記述
+    for (file of e.target.files) {
+      parent.querySelector('.file_name').insertAdjacentHTML('beforeend', file.name);
+    }
+  })
+})

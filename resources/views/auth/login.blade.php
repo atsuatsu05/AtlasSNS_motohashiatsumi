@@ -1,7 +1,7 @@
 @extends('layouts.logout')
 
 @section('content')
-<!-- 適切なURLを入力してください -->
+
 {!! Form::open(['url' => '/login']) !!}
 
 <p>AtlasSNSへようこそ</p>
@@ -21,7 +21,7 @@
 {{ Form::label('password') }}
 {{ Form::password('password',['class' => 'input']) }}
 
-<!-- {{ Form::submit('ログイン') }} -->
+
 <button type="submit" class="btn btn-danger">ログイン</button>
 
 <p><a href="/register">新規ユーザーの方はこちら</a></p>

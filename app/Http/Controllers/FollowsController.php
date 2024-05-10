@@ -20,7 +20,7 @@ class FollowsController extends Controller
         $following = User::whereIn('id',$following_id)->get();
         //フォローしているユーザーのidを元にpostを取得
         $posts = Post::with('user')->whereIn('user_id',$following_id)->get()->sortByDesc('created_at');
-        // dd($posts);
+
         return view('follows.followList',compact('posts','following'));
     }
 
@@ -36,11 +36,10 @@ class FollowsController extends Controller
         return view('follows.followerList',compact('posts','followed'));
     }
 
-    //フォロー機能の実装
+//フォロー機能の実装
     public function followCreate(Request $request){
         //フォローしたユーザーのidを受け取る
         $follow_id = $request->input('follow_id');
-        // dd($follow_id);
         //フォローしたユーザーをfollowテーブルに保存する
         Follow::create([
             'following_id' => Auth::id(),
@@ -48,7 +47,7 @@ class FollowsController extends Controller
         ]);
 
         //登録したら、ユーザー検索ページへ戻る
-        return redirect('/search');
+        return back();
     }
 
     //フォロー解除
@@ -57,7 +56,8 @@ class FollowsController extends Controller
 
         //削除対象のレコードを検索して削除する
         Follow::where('following_id',Auth::id())->where('followed_id',$followed_id)->delete();
-        return redirect('/search');
+        return back();
 
     }
+
 }

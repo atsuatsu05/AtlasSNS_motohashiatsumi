@@ -37,7 +37,6 @@
     <div> <!-- ユーザー名と作成日を横並びにする -->
     <div class="post_name">{{ $list->user->username }}</div>
     <div class="post_created">{{ $list->created_at->format('Y-m-d H:i') }}</div>
-    <!-- ,($list->created_at) -->
     </div> <!-- end ユーザー名と作成日を横並びにする -->
     <div class="post_list">{{ $list->post }}</div>
   </div><!-- end post_content -->
@@ -69,7 +68,6 @@
         <input type="hidden" name="postId" class="modal_id" value="">
         <div align="center">
         <input type="image" name="submit" class="update_btn" src="{{ asset('images/edit.png') }}" value="更新">
-        <!-- 不要？？<a class="js_modal_close" href="/top" alt="閉じる"></a> -->
         </div>
         {{ csrf_field() }}
 

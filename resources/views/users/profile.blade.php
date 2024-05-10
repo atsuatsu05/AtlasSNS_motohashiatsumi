@@ -47,8 +47,11 @@
       <div class="update_block">
       <label for="images" class="icon_upload">アイコン画像</label>
       <div class="update_image">
+        <label>
       <input type="file" name="images" id="file_button" value="">
       <button id="file_image" type="button">ファイルを選択</button>
+      </label>
+      <p class="file_name"></p>
       </div>
       </div> <!-- end update_block -->
   </div> <!-- end update_form -->

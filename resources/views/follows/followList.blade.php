@@ -5,7 +5,7 @@
   <p>フォローリスト</p>
   <div class="following_icon">
     @foreach($following as $following)
-    <a href=""><img src="{{ asset('/storage/'.$following->images) }}" alt="フォローアイコン"></a>
+    <a href="/profile/{{ $following->id }}"><img src="{{ asset('/storage/'.$following->images) }}" alt="フォローアイコン"></a>
     @endforeach
   </div>
 </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use Auth;
 use App\Follow;
+use App\Post;
 
 
 
@@ -29,11 +30,7 @@ class UsersController extends Controller
         $new_mail = $request->input('mail');
         $new_password = $request->input('password');
         $password_confirm = $request->input('password_confirm');
-        // $new_bio = $request->input('bio');
 
-        // 画像の受け取り・保存の仕方
-        // ①ファイル形式で受け取り、画像を保存するディレクトリを指定
-        // $icon_images = $request->file('images')->store('public');
 
 
         //編集内容をデータベース（Userテーブル）へ保存する
@@ -78,16 +75,38 @@ class UsersController extends Controller
         return view('users.search',compact('users','keyword'));
     }
 
-    //フォロー機能の実装
-    // public function followCreate(Request $request){
-    //     //フォローしたユーザーのidを受け取る
-    //     $follow_id = $request->input('follow_id');
-    //     //フォローしたユーザーをfollowテーブルに保存する
-    //     Follow::create([
-    //         'following_id' => '$follow_id'
-    //     ]);
+    //他ユーザーのプロフィール画面
+    public function userProfile($id){
+        //Userモデルを経由し、usersテーブルのレコードを取得。
+        $users_profile = User::where('id',$id)->get();
+        $posts = Post::where('user_id',$id)->get();
 
-    //     //登録したら、ユーザー検索ページへ戻る
-    //     return redirect('/search');
-    // }
+        //
+        return view('users.userProfile',compact('users_profile','posts'));
+    }
+
+    //フォロー機能の実装(他ユーザープロフィール画面)
+    public function followCreate(Request $request){
+        //フォローしたユーザーのidを受け取る
+        $follow_id = $request->input('follow_id');
+
+        //フォローしたユーザーをfollowテーブルに保存する
+        Follow::create([
+            'following_id' => Auth::id(),
+            'followed_id' => $follow_id
+        ]);
+
+        //登録したら、ユーザー検索ページへ戻る
+        return back();
+    }
+
+    //フォロー解除(他ユーザープロフィール画面)
+    public function unFollow(Request $request){
+        $followed_id = $request->input('followed_id');
+
+        //削除対象のレコードを検索して削除する
+        Follow::where('following_id',Auth::id())->where('followed_id',$followed_id)->delete();
+        return back();
+
+    }
 }
