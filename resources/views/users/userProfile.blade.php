@@ -54,7 +54,4 @@
   </ul>
 </div>
 
-
-
-</div>
 @endsection
