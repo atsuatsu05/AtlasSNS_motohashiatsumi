@@ -54,10 +54,6 @@ class UsersController extends Controller
             User::where('id',$user_id)->update([
                 'images' => $icon_images // userテーブルのimagesカラムに格納
             ]);
-
-
-
-
             }
 
         //保存したらTOPページへ遷移する
