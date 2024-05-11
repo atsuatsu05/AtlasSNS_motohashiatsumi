@@ -28,9 +28,6 @@ class PostsController extends Controller
         $lists = Post::with('user')->whereIn('user_id',$following_id)->orWhere('user_id',Auth::user()->id)->get()->sortByDesc('created_at');
         //Postモデル（postsテーブル）からレコード情報を取得
         return view('posts.index',['lists'=>$lists]);
-
-
-        return view('posts.index',compact('posts'));
     }
 
     // 投稿の作成
