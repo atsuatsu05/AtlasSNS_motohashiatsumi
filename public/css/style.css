@@ -26,6 +26,7 @@ a {
     color: #fff;
 }
 
+
 /* head */
 #head {
     display: flex;
@@ -34,8 +35,8 @@ a {
 
 #head h1 img {
     display: block;
-    width: 100px;
-    margin: auto;
+    width: 30%;
+    height: auto;
 
 }
 
@@ -72,7 +73,7 @@ a {
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: nowrap;
 }
 
 #container {
@@ -409,6 +410,10 @@ a {
     border: none;
 }
 
+.search_word {
+    margin: auto;
+}
+
 /* ユーザー一覧 */
 .users_list {
     width: 60%;
@@ -470,6 +475,7 @@ a {
 .followed_icon {
     display: flex;
     margin: 0px 30px;
+    flex-wrap: wrap;
 }
 
 .following_icon a,

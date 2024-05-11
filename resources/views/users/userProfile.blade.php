@@ -40,7 +40,7 @@
   <li>
     <div class="post_block">
      <div class="post_icon">
-      <img src="{{ asset('/storage/'.$post->user->images) }}" alt="ユーザーアイコン">
+      <img src="{{ asset('/storage/'.$post->user->images) }}" alt="ユーザーアイコン" width="64" height="64">
      </div>
      <div class="post_content">
       <div><!-- ユーザー名と作成日を横並びにする -->

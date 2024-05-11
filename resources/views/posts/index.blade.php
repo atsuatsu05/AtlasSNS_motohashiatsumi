@@ -16,7 +16,7 @@
 
   {!! Form::open(['url' => '/posts/create']) !!}
   <div class="post_container">
-    <p><img src="{{ asset('storage/'.Auth::user()->images) }}"></p>
+    <p><img src="{{ asset('storage/'.Auth::user()->images) }}" width="64" height="64"></p>
     {{ Form::textarea('newPost',null,['class' => 'post_text' , 'style' => 'white-space:pre-wrap', 'placeholder' => '投稿内容を入力してください。' ]) }}
     <input type="image" name="submit" class="submit_btn" src="{{ asset('images/post.png') }}" alt="投稿ボタン">
   </div>
@@ -27,20 +27,24 @@
 
 <div class="posts_container">
  <ul>
-  @foreach($list as $list)
+  @foreach($lists as $list)
+
   <li>
   <div class="post_block">
    <div class="post_icon">
-    <img src="{{ asset('storage/'.$list->user->images) }}">
+    <img src="{{ asset('storage/'.$list->user->images) }}" width="64" height="64">
    </div>
   <div class="post_content">
     <div> <!-- ユーザー名と作成日を横並びにする -->
     <div class="post_name">{{ $list->user->username }}</div>
     <div class="post_created">{{ $list->created_at->format('Y-m-d H:i') }}</div>
     </div> <!-- end ユーザー名と作成日を横並びにする -->
+
     <div class="post_list">{{ $list->post }}</div>
+
   </div><!-- end post_content -->
   </div><!-- end post_block -->
+
 
   @if(Auth::user()->id == $list->user_id)<!-- ログインのIDとpostsテーブルのuser_idが同じだったら編集・削除ボタンを表示させる-->
   <!-- 投稿の編集・削除ボタン設置 -->

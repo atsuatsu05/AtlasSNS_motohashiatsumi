@@ -34,26 +34,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/top','PostsController@index');
     Route::post('/posts/create','PostsController@postCreate');
 
-    Route::get('/profile','UsersController@profile');
+    //ログインに成功したらtopページへ
+    Route::post('/top', 'Auth\LoginController@login');
+    //ログアウト機能
+    Route::get('/logout', 'Auth\LoginController@logout');
 
-    Route::get('/search','UsersController@search');
+
     //ユーザー検索機能
+    Route::get('/search','UsersController@search');
     Route::post('/search','UsersController@search');
 
     //フォロー・フォロワーリスト
     Route::get('/follow-list','FollowsController@followList');
     Route::get('/follower-list','FollowsController@followerList');
 
-    //ログインに成功したらtopページへ
-    Route::post('/top', 'Auth\LoginController@login');
-    //ログアウト機能
-    Route::get('/logout', 'Auth\LoginController@logout');
 
     //投稿の編集機能
     Route::post('/top','PostsController@postUpdate');
     //投稿の削除機能
     Route::get('/post/{id}/delete','PostsController@delete');
 
+    //プロフィール画面
+     Route::get('/profile','UsersController@profile');
     //プロフィールの編集機能
     Route::get('/profile/update','UsersController@profileUpdate');
     Route::post('/profile/update','UsersController@profileUpdate');

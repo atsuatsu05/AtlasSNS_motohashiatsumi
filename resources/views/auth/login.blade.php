@@ -24,8 +24,9 @@
 
 <button type="submit" class="btn btn-danger">ログイン</button>
 
+<div class="return">
 <p><a href="/register">新規ユーザーの方はこちら</a></p>
-
+</div>
 {!! Form::close() !!}
 
 @endsection

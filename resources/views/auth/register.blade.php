@@ -30,8 +30,9 @@
 
 <button type="submit" class="btn btn-danger">新規登録</button>
 
+<div class="return">
 <p><a href="/login">ログイン画面へ戻る</a></p>
-
+</div>
 {!! Form::close() !!}
 
 

@@ -5,7 +5,7 @@
   <p>フォローワーリスト</p>
   <div class="followed_icon">
     @foreach($followed as $followed)
-    <a href="/profile/{{ $followed->id }}"><img src="{{ asset('/storage/'.$followed->images) }}" alt="フォローアイコン"></a>
+    <a href="/profile/{{ $followed->id }}"><img src="{{ asset('/storage/'.$followed->images) }}" alt="フォローアイコン" width="64" height="64"></a>
     @endforeach
   </div>
 </div>
@@ -14,7 +14,7 @@
 @foreach($posts as $post)
    <li>
     <div class="post_icon">
-      <img src="{{ asset('storage/'.$post->user->images) }}">
+      <img src="{{ asset('storage/'.$post->user->images) }}" width="64" height="64">
     </div>
     <div class="post_content">
       <div><!-- ユーザー名と作成日を横並びにする -->

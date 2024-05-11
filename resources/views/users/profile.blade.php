@@ -11,7 +11,7 @@
 </div>
 @endif
 <div class="profile_container">
-  <div class="user_icon"><img src="{{ 'storage/'.Auth::user()->images }}"></div>
+  <div class="user_icon"><img src="{{ 'storage/'.Auth::user()->images }}" width="64" height="64"></div>
    <div class="profile_update">
     {!! Form::open(['url' => '/profile/update','enctype' => 'multipart/form-data']) !!}
     @csrf

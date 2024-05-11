@@ -6,8 +6,12 @@
     @csrf
     <input type="text" name="keyword" class="search_form" placeholder="ユーザー名" value="{{ $keyword }}">
     <button type="submit" ><img src="{{ asset('images/search.png') }}" art="検索"></button>
-
   </form>
+  @if(!empty($keyword))
+  <div class="search_word">
+    <p>検索ワード：{{ $keyword }}</p>
+  </div>
+  @endif
 </div>
 <!-- ユーザー一覧の表示 -->
 <div class="users_list">
@@ -15,7 +19,7 @@
 @foreach($users as $user)
 @if ($user->id !== Auth::user()->id)
 <ul>
-  <li><img src="{{asset('storage/'.$user->images) }}" alt="ユーザーアイコン"></li>
+  <li><img src="{{asset('storage/'.$user->images) }}" alt="ユーザーアイコン" width="64" height="64"></li>
   <li><p>{{ $user->username }}</p></li>
   @if(auth()->user()->isFollowing($user->id))
   <!-- フォローボタン・解除ボタン -->

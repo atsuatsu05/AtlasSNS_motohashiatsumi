@@ -46,13 +46,17 @@ class UsersController extends Controller
             ]);
             }
          if($request->file('images')){
-            //画像にオリジナルの名前をつける
+           //画像にオリジナルの名前をつける
             $filename=$request->file('images')->getClientOriginalName();
+            //受け取った画像を指定したディレクトリに指定した名前で保存
+            $icon_images=$request->file('images')->storeAs('',$filename,'public');
 
-            $icon_images=$request->file('images')->storeAs('',$filename);
             User::where('id',$user_id)->update([
                 'images' => $icon_images // userテーブルのimagesカラムに格納
             ]);
+
+
+
 
             }
 
